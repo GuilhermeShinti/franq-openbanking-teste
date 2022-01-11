@@ -59,7 +59,7 @@ export const Content = styled.div`
             height: 40px;
             border: 0px;
             border-radius: 4px;
-            background: #005e95;
+            background: #456691;
             color: #fff;
             font-size: 18px;
             transition: background 0.2s;
