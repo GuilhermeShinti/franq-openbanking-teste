@@ -7,7 +7,7 @@ export function Dashboard() {
     const [bitcoin, setBitcoin] = useState<[]>([]);
 
     const getFinances = async () => {
-        await api.get('finance?format=json-cors&key=32dac969').then(
+        await api.get('finance').then(
             response => {
                 const {bitcoin, currencies, stocks} = response.data.results
                 setCurrencies(currencies);
