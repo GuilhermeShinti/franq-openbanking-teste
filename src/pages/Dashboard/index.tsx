@@ -7,7 +7,7 @@ export function Dashboard() {
     const [bitcoins, setBitcoins] = useState<[]>([]);
 
     const getFinances = async () => {
-        await api.get('https://api.hgbrasil.com/finance').then(response => console.log(response.data))
+        await api.get('finance?key=32dac969').then(response => console.log(response.data))
     }
 
     useEffect(() => {
