@@ -19,14 +19,14 @@ export function Dashboard() {
 
     useEffect(() => {
         getFinances();
-    })
+    }, [])
 
     return (
         <>
             {
                 Object.keys(stocks).map(stock => 
                     (
-                        <div>stock.name</div>
+                        <div>{stock}</div>
                     )
                 )
             }
