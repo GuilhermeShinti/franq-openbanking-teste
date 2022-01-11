@@ -2,7 +2,7 @@ import React from "react";
 import { FormEvent } from "react";
 import { Content, Wrapper } from "./styles";
 
-export function SignUp() {
+export function SignIn() {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
 
