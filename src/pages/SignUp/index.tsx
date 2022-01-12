@@ -1,6 +1,7 @@
 import React from "react";
 import { FormEvent } from "react";
 import { Content, Wrapper } from "./styles";
+import { toast } from 'react-toastify';
 
 export function SignUp() {
     const [email, setEmail] = React.useState('')
@@ -9,7 +10,17 @@ export function SignUp() {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         console.debug(email, password);
-        
+
+        if (email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
+            toast.error("Usuário já cadastrado.");
+            return;
+
+        }        
+
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+        localStorage.setItem('logged_time', new Date().getTime().toString());
+        toast.success("Cadastro realizado com sucesso.");
     }
 
     return  (

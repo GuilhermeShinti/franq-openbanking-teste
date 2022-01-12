@@ -6,8 +6,4 @@ export const api = axios.create({
         key: process.env.REACT_APP_API_KEY,
         format: 'json-cors',
     }
-    // headers: {
-    //     'content-type': 'application/json;charset=utf-8',
-    //     'Access-Control-Allow-Origin': '*',
-    // }
 });

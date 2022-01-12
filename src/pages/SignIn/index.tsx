@@ -10,6 +10,9 @@ export function SignIn() {
         event.preventDefault();
         console.debug(email, password);
         
+        if (email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
+            localStorage.setItem('logged_time', new Date().getTime().toString());
+        }     
     }
 
     return  (
