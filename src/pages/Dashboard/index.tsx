@@ -33,10 +33,10 @@ export function Dashboard() {
         await api.get('finance').then(
             response => {
                 const {bitcoin, currencies, stocks} = response.data.results
-                // const filtered = Object.values(currencies[0]).filter(f => typeof f === 'object') as ICurrency[];
-                // setCurrencies(filtered);    
-                setStocks(Object.values(stocks[0]));
-                setBitcoin(Object.values(bitcoin[0]));
+                const filtered = Object.values(currencies).filter(f => typeof f === 'object');
+                setCurrencies(filtered as ICurrency[]);    
+                setStocks(Object.values(stocks));
+                setBitcoin(Object.values(bitcoin));
             }
         )
     }
