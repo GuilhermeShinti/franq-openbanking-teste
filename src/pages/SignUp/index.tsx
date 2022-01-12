@@ -3,8 +3,10 @@ import { FormEvent } from "react";
 import { Content, Wrapper } from "./styles";
 import { toast } from 'react-toastify';
 import { Register } from "../../services/auth";
+import { useNavigate } from "react-router-dom";
 
 export function SignUp() {
+    const navigate = useNavigate();
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
 
@@ -14,6 +16,7 @@ export function SignUp() {
 
         try {
             Register({email, password});
+            navigate(`/login`);
             toast.success("Cadastro realizado com sucesso.");
         } catch (e: any) {
             toast.error(e.message);

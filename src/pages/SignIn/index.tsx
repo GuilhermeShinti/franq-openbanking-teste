@@ -16,14 +16,14 @@ export function SignIn() {
         
         try {
             Login({email, password});
-            navigate(`/`)
+            navigate(`/`);
         } catch (e: any) {
             toast.error(e.message);
         }
     }
 
     const onClickNewAccount = () => {
-        navigate(`/cadastro`)
+        navigate(`/cadastro`);
     }
 
     return  (
