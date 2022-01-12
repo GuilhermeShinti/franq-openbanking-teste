@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -59,19 +60,27 @@ export const Content = styled.div`
             height: 40px;
             border: 0px;
             border-radius: 4px;
-            background: #456691;
+            
             color: #fff;
             font-size: 18px;
             transition: background 0.2s;
 
+            &.login-button {
+                background: #456691;
 
-        }
+                &:hover {
+                    background: #626262;
+                }
+            }
 
-        a {
-            margin-top: 15px;
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.6);
-            height: 21px;
+            &.register-button {
+                color: #456691;
+
+                &:hover {
+                    color: #fff;
+                    background: #626262;
+                }
+            }
         }
     }
 `;

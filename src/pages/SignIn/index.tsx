@@ -1,8 +1,12 @@
 import React from "react";
 import { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Login } from "../../services/auth";
 import { Content, Wrapper } from "./styles";
 
 export function SignIn() {
+    const navigate = useNavigate();
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
 
@@ -10,9 +14,16 @@ export function SignIn() {
         event.preventDefault();
         console.debug(email, password);
         
-        if (email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
-            localStorage.setItem('logged_time', new Date().getTime().toString());
-        }     
+        try {
+            Login({email, password});
+            navigate(`/`)
+        } catch (e: any) {
+            toast.error(e.message);
+        }
+    }
+
+    const onClickNewAccount = () => {
+        navigate(`/cadastro`)
     }
 
     return  (
@@ -24,7 +35,8 @@ export function SignIn() {
                     <input type="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
                     <label htmlFor="password"></label>
                     <input type="password" id="password" placeholder="Password" value={password}  onChange={(e) => setPassword(e.target.value)} required></input>
-                    <button>Login</button>
+                    <button type="submit" className="login-button">Login</button>
+                    <button onClick={onClickNewAccount} className="register-button">Novo Cadastro</button>
                 </form>
             </Content>
         </Wrapper>
