@@ -1,28 +1,10 @@
 import { useEffect, useState } from "react"
 import { Content } from "../../components/Content";
+import { IBitcoin } from "../../interfaces/IBitcoin";
+import { ICurrency } from "../../interfaces/ICurrency";
+import { IIndex } from "../../interfaces/IIndex";
 import { api } from "../../services/api";
 import { Container } from "./styles";
-
-interface IIndex {
-    name: string,
-    location: string,
-    points: number,
-    variation: number,
-}
-
-interface ICurrency {
-    name: string,
-    buy: number,
-    sell: number,
-    variation: number,
-}
-
-interface IBitcoin {
-    name: string,
-    last: number,
-    format: string[],
-    variation: number,
-}
 
 export function Dashboard() {
     const [currencies, setCurrencies] = useState<ICurrency[]>([]);
